@@ -1,0 +1,26 @@
+{% extends "/templates/index.html" %}
+
+{% block content %}
+
+	<div class="privatemessages">
+		<div class="privatelisttitle">
+		Private Messages for {{ username }}
+		</div>
+		<div class="privatemessagelist">
+			{% for message in messages %}
+				<div class="privatemessage">
+					<div class="user">
+					from {{ messageuserlist[loop.index0] }}<br/>
+					</div>
+					<div class="message">
+					{{ message }}
+					</div>
+					<div class="date">
+					</br>{{ messagedatelist[loop.index0] }}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}

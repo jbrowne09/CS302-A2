@@ -1,0 +1,24 @@
+{% extends "/templates/index.html" %}
+
+{% block content %}
+	<div class="sendpublicform">
+		<div class="sendpublictitle">
+        	Public Message
+		</div>
+        	<form action="/sendPublicbroadcast" method="post" enctype="multipart/form-data">
+        		<textarea id="publicentry" name="pubmessage" placeholder="Enter your public message here"></textarea>
+        		<input type="submit" id="submitpublic" value="Send Public Message"/>
+		</form>
+	</div>
+
+	<div class="sendprivateform">
+		<div class="sendprivatetitle">
+        	Private Message
+		</div>
+        	<form action="/sendPrivatemessage" method="post" enctype="multipart/form-data">
+        	<input type="text" id="privateuserentry" name="user" placeholder="Enter the person you want to send a message to"/></br>
+        	<textarea type="text" id="privateentry" name="privmessage" placeholder="Enter your private message here"></textarea>
+        	<input type="submit" id="submitprivate" value="Send Private Message"/></form>
+	</div>
+
+{% endblock %}

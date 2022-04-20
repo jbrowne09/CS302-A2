@@ -1,0 +1,42 @@
+{% extends "/templates/index.html" %}
+
+{% block content %}
+
+	<p>Hello {{ username }}</p>
+	<a href='/broadcast'>Send a message</a><br/>
+
+	<div class="users">
+		<div class=userlisttitle>
+		Online Users:
+		</div>
+		<div class="userlist">
+			{% for user in users %}
+				{{ user }}<br/>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="publicmessages">
+		<div class="publiclisttitle">
+		Public Messages
+		</div>
+		<div class="publicmessagelist">
+			{% for message in messages %}
+			<div class="publicmessage">
+				<div class="user">
+				{{ messageuserlist[loop.index0] }}
+				</div>
+				<div class="message">
+				{{ message }}
+				</div>
+				<div class="date">
+				</br>{{ messagedatelist[loop.index0] }}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}
+
+

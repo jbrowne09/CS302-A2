@@ -1,0 +1,24 @@
+{% extends "/templates/index.html" %}
+
+{% block content %}
+           
+	<div class="loginform">
+		<div class="logintext">
+			Enter your Credentials
+		</div>
+
+        	<form action="/signin" method="post" enctype="multipart/form-data">
+        	<input type="text" id="username" name="username" placeholder="Username"/><br/>
+        	<input type="password" id="password" name="password" placeholder="Password"/><br/>
+ 		<input type="password" id="secret" name="secret" placeholder="DataKey"/></br>
+		<input type="submit" id="submitlogin" value="Login"/></form>
+
+		{%- if badAttempt -%}
+
+		<div class="badattempt">
+			Password, Username or DataKey is incorrect
+		</div>
+		{% endif %}
+	</div>
+
+{% endblock %}

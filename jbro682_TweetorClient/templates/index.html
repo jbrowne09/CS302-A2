@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+{% block head %}
+	<title>Tweetor</title>
+	<link rel='stylesheet' href='/static/tweetor.css' />
+{% endblock %}
+</head>
+
+{% block titlebar %}
+<div class="titlebar">
+	<div class="title">
+		<div class="main">
+			Tweetor
+		</div>
+		<div class="sub">
+			Chat Forum
+		</div>
+	</div>
+	<div class="navbar">
+		<a id="navhome" href='/'>Home</a>
+		{%- if not loggedIn -%}
+			<a id="navlogin" href='/login'>Login</a>
+		{% endif %}
+		{%- if loggedIn -%}
+			<a id="navprivate" href='/private_messages'>Private Messages</a>
+			<a id="navsend" href='/broadcast'>Send a Message</a>
+			<a id="navsignout" href='/signout'>Sign Out</a>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<a id="loginbutton" href='/login'>
+	Login<br/>
+</a>
+{% endblock %}
+
+{% block reload %}
+	<script>
+		var xhttp = new XMLHttpRequest();
+
+		function timedRefresh(timeoutPeriod) {
+                        //sendUpdate();
+			setInterval(sendUpdate, timeoutPeriod);
+		}
+
+		function sendUpdate() {
+
+			xhttp.open("GET", '/update', false);
+			xhttp.send(null);
+		}
+
+		window.onload = timedRefresh(60000);
+	</script>
+	<script>
+		{%- if reloadpage -%}
+
+			function refreshPage(timeout) {
+				setInterval(function(){ location.reload(); }, timeout);
+			}
+
+			window.onload = refreshPage(60000)
+		{% endif %} 
+
+	</script>
+{% endblock %}
+
+</html>

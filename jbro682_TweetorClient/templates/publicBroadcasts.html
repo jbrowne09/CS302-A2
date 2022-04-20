@@ -1,0 +1,13 @@
+{% extends "/templates/index.html" %}
+
+{% block content %}
+
+	</br><b>Received Public Messages</b></br>
+	</br>
+	{% for message in messages %}
+		{{ message }}<br/>
+	{% endfor %}
+	</br>
+        <a href="/">Back</a>
+
+{% endblock %}
