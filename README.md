@@ -14,3 +14,8 @@ Author: Jonathan Browne
   (e.g: 192.168.1.1:10050) as the URL.
 * The main.py file which initializes the webapp was not written by me (Jonathan Browne) but was provided for the initial assignment. All work completed by
   me is in the 'server.py' file and all html files in the 'templates' folder
+
+## Needed Packages
+* Cherrypy
+* NaCl
+* Jinja2
